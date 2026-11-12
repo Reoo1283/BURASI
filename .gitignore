@@ -1,0 +1,27 @@
+# Sırlar — asla commit edilmez
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Veritabanları — canlı veri
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+
+# Arşivler
+*.rar
+*.7z
+*.zip
+
+# Node
+node_modules/
+npm-debug.log*
+
+# İşletim sistemi
+Thumbs.db
+desktop.ini
+.DS_Store
