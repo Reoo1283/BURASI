@@ -90,3 +90,8 @@ tüm geçmiş, ajanlar ve açık işler geri gelsin.
 **Tarih:** Oturum 3 · **Karar:** `dev:` + 64 hex varsayımı kodun hiçbir yerinde tekrarlanmaz; `bans.parseDeviceKey()` tek kaynak.
 **Gerekçe:** Biçim değişince ban **sessizce** tanınmıyordu (hata yok, log yok).
 **Davranış:** Geçerli her `dev:<hex>` anahtar kullanılır; beklenmeyen uzunluk kullanılır **ama** `logInfo('identity.ban-key-unrecognized')` ile raporlanır. `dev:` dışı anahtarlar cihaz anahtarı sayılmaz.
+
+### K19 — Sarmalanan room alanları destroy() ile geri alınır
+**Tarih:** Oturum 3 · **Karar:** Bir motorda `Object.defineProperty` ile sarmalanan her room alanı için önceki tanım saklanır ve `destroy()` aynen geri koyar (tanım yoksa siler).
+**Gerekçe:** Sarmalayıcı kalıcı olursa `_origJoin` eski motora bağlı kalır; yeni motor kurulunca aynı olay iki kez işlenir (çift log, çift mevki uygulaması). Hata görünmez, sadece davranış bozulur.
+**Uygulama:** `createMatchEngine` → `prevJoinDescriptor`; `destroy()` → `defineProperty(prev)` / `delete`.

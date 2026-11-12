@@ -154,7 +154,12 @@ modüller (`sqlite3`, `bcrypt`) her makinede yeniden derlenmeli, arşivlenmemeli
 **Rehber:** `kurulum/SIR-ROTASYONU.md` §3 ve §8.
 
 
-### [x] 19. Ajan raporu bulguları (C1–C17) — kısmi: C1 bitti
+### [x] 19. Ajan raporu bulguları (C1–C17) — kısmi: C1, C2 bitti
+
+**C2 BİTTİ (12 Kasım 2026):** `src/match/index.js` → `createMatchEngine` kapsamında `prevJoinDescriptor`; `initMatchMechanics` kurmadan önceki tanımı saklar, `destroy()` `Object.defineProperty` ile **aynen geri koyar** (tanım yoksa `delete`). Önceden accessor kalıcı kalıyor ve `_origJoin` eski motora bağlı kalıyordu → motor yeniden kurulunca aynı join **iki kez** işleniyordu.
+**Kanıt:** `tests/match.index.test.js` +2 test (30/30). Regresyon testleri eski kodla **2 kırmızı**, yeni kodla yeşil doğrulandı. Tam paket **569/569**.
+**Bonus:** fairplay dedup (`${dbId}|censor`, 60 sn) testler arasında sızıyordu — `commands.js` fairplay'i modül düzeyinde aldığı için DI ile izole edilemiyor. Censor testleri benzersiz `dbId` kullanıyor + davranış 2 yeni testle kilitlendi.
+
 **C1 BİTTİ (12 Kasım 2026):** `src/bans.js` → `isDeviceKey()`, `parseDeviceKey()`, `DEVICE_KEY_PREFIX`, `DEVICE_KEY_HEX_LEN`. `src/identity.js:355-375` → format varsayımı kalktı, beklenmeyen uzunluk `logInfo('identity.ban-key-unrecognized')` ile raporlanıyor (sır basılmıyor).
 **Kanıt:** `tests/moderation.test.js` +5 test (27/27). Regresyon testi **eski kodla kırmızı, yeni kodla yeşil** doğrulandı. Tam paket **565/565**.
 **Bonus:** `src/identity.js` S1/S6 döngülerinde tanımsız `ah` (runtime `ReferenceError`) ve kullanılmayan bağlama düzeltildi; eslint 28 → 25.

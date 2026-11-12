@@ -33,6 +33,7 @@
 | 15 | **Ajan ekibi raporu** | 7 ajan, 17 bulgu (C1–C17), dosya:satır + çözüm planı |
 | 16 | **560 test / 560 geçti** | 4 zamanlama-duyarlı test `waitFor` desenine çevrildi |
 | 17 | **C1 kapandı** | ban anahtarı format bağımlılığı kalktı; +5 test; 565/565 |
+| 18 | **C2 kapandı** | destroy() accessor'ı geri alıyor; +2 test; 569/569 |
 
 ---
 
