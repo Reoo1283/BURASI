@@ -85,3 +85,8 @@ tüm geçmiş, ajanlar ve açık işler geri gelsin.
 **Tarih:** Oturum 3 · **Karar:** Kullanıcı "format aynı kalıyor değiştirmeye gerek kalmıyor" dedi.
 **Uygulama:** 7 dosya düz `cp` ile kopyalandı; `diff` 7/7 birebir, frontmatter 7/7 geçerli.
 **Sınır:** Bu dizin Claude Code'un; AbacusAI Bot'ta ayrı ajan süreci yoktur.
+
+### K18 — Ban anahtarı biçimi tek yerden okunur
+**Tarih:** Oturum 3 · **Karar:** `dev:` + 64 hex varsayımı kodun hiçbir yerinde tekrarlanmaz; `bans.parseDeviceKey()` tek kaynak.
+**Gerekçe:** Biçim değişince ban **sessizce** tanınmıyordu (hata yok, log yok).
+**Davranış:** Geçerli her `dev:<hex>` anahtar kullanılır; beklenmeyen uzunluk kullanılır **ama** `logInfo('identity.ban-key-unrecognized')` ile raporlanır. `dev:` dışı anahtarlar cihaz anahtarı sayılmaz.

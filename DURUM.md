@@ -32,6 +32,7 @@
 | 14 | **Madde 18 uygulandı** | açılışta sır sağlık kontrolü + `tests/secretCheck.test.js` (7 test) |
 | 15 | **Ajan ekibi raporu** | 7 ajan, 17 bulgu (C1–C17), dosya:satır + çözüm planı |
 | 16 | **560 test / 560 geçti** | 4 zamanlama-duyarlı test `waitFor` desenine çevrildi |
+| 17 | **C1 kapandı** | ban anahtarı format bağımlılığı kalktı; +5 test; 565/565 |
 
 ---
 

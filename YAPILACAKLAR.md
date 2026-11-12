@@ -154,7 +154,11 @@ modüller (`sqlite3`, `bcrypt`) her makinede yeniden derlenmeli, arşivlenmemeli
 **Rehber:** `kurulum/SIR-ROTASYONU.md` §3 ve §8.
 
 
-### [ ] 19. Ajan raporu bulguları (C1–C17)
+### [x] 19. Ajan raporu bulguları (C1–C17) — kısmi: C1 bitti
+**C1 BİTTİ (12 Kasım 2026):** `src/bans.js` → `isDeviceKey()`, `parseDeviceKey()`, `DEVICE_KEY_PREFIX`, `DEVICE_KEY_HEX_LEN`. `src/identity.js:355-375` → format varsayımı kalktı, beklenmeyen uzunluk `logInfo('identity.ban-key-unrecognized')` ile raporlanıyor (sır basılmıyor).
+**Kanıt:** `tests/moderation.test.js` +5 test (27/27). Regresyon testi **eski kodla kırmızı, yeni kodla yeşil** doğrulandı. Tam paket **565/565**.
+**Bonus:** `src/identity.js` S1/S6 döngülerinde tanımsız `ah` (runtime `ReferenceError`) ve kullanılmayan bağlama düzeltildi; eslint 28 → 25.
+**Kalan:**
 **Kaynak:** `raporlar/ajan-raporu-2026-11-12.md`
 **En kritik 5:** C1 (ban anahtarı), C2 (accessor geri alma), C4 (sır rotasyonu), C7 (skor yedeği), C3 (sightings büyümesi).
 **Kural:** Her biri ayrı onay ister; C4 yalnız kullanıcı yapabilir.
