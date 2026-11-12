@@ -145,6 +145,12 @@ modüller (`sqlite3`, `bcrypt`) her makinede yeniden derlenmeli, arşivlenmemeli
 **Nerede:** `src/match/index.js` 14 · `src/identity.js` 5 · `tests/*` 6 · `public/js/views/identity.js` 2 · `src/commands.js` 1
 **Neden:** Hepsi `no-unused-vars`/`prefer-const`; ölü kod mu eksik mi olduğu dosya dosya karar gerektiriyor.
 
+### [ ] 18. Açılışta sır sağlık kontrolü (onay bekliyor)
+**Nerede:** `server.js:50-70`
+**Neden:** `JWT_SECRET`/`ADMIN_JWT_SECRET`/`BOT_API_KEY` **aynı** olsa da kod açılıyor; yalnız "tanımlı mı" bakılıyor.
+**Yapılacak:** (a) üç sırrın birbirinden farklı olduğunu doğrula, (b) min uzunluk kontrolü, (c) `logs/`'a sır yazılmadığını doğrulayan test, (d) `verify.js`'e `.env` takip kontrolü.
+**Rehber:** `kurulum/SIR-ROTASYONU.md` §3 ve §8.
+
 ---
 
 ## Bitiş kontrolü

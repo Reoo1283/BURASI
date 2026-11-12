@@ -1,7 +1,7 @@
 # DURUM — Nerede kaldık
 
 **Son güncelleme:** 12 Kasım 2026, oturum 3 (kod düzeltme turu — Linux, Node v24.22.2)
-**Sıradaki adım:** `YAPILACAKLAR.md` → madde 1 (sır rotasyonu, yalnız kullanıcı) · sonra madde 6b, 16, 17
+**Sıradaki adım:** kullanıcı `kurulum/SIR-ROTASYONU.md` ile rotasyonu yapıyor · sonra madde 6b, 16, 17, 18
 
 ---
 
@@ -34,7 +34,8 @@
 ## Doğrulanmamış olan (dikkat)
 
 - ~~46 test çalıştırılmadı~~ → **kapandı:** 553/553 geçti (oturum 3).
-- **Sırlar hâlâ yanmış durumda:** `.env` + `README.md:2` GitHub'da commit edilmiş (1 commit). Rotasyon yapılmadı.
+- **Sırlar hâlâ yanmış durumda:** `.env` + `github-upload/README.md` GitHub'da commit edilmiş (1 commit). Rotasyon yapılmadı.
+  → Adım adım rehber hazır: `kurulum/SIR-ROTASYONU.md` (6 değer değişecek, 3'ü sır değil).
 - `src/` değişiklikleri **haxball-serverr deposuna gönderilmedi** — yalnız bu raporda diff olarak duruyor.
 - `Haxball Server.rar` içindeki `src/` sürümü ile GitHub `main` arasındaki fark
   hâlâ bilinmiyor — arşivdeki `.git` commit `1053c7a`, çalışma ağacında **163 değişiklik** var.

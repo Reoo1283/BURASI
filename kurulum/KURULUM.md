@@ -145,3 +145,11 @@ Kaynak: `haxball-agents/agents.json`
 Eski makinede `C:\Users\reo\AppData\Local\Temp\hs-full\` altındaki 151 MB'lık
 indirilmiş depo **silindi**. Oradaki içerik yeniden klonlamayla geri gelir;
 kalıcı olarak kaybolan bir şey yok.
+
+---
+
+## Sır rotasyonu
+
+`.env` ve `github-upload/README.md` GitHub'a commit edilmiş durumda. Adım adım rehber:
+**[`SIR-ROTASYONU.md`](SIR-ROTASYONU.md)** — üretme komutları, `.env` doğrulama betiği,
+yeniden başlatma ve "gerçekten bitti mi" kontrol listesi.
