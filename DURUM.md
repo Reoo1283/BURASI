@@ -34,6 +34,7 @@
 | 16 | **560 test / 560 geçti** | 4 zamanlama-duyarlı test `waitFor` desenine çevrildi |
 | 17 | **C1 kapandı** | ban anahtarı format bağımlılığı kalktı; +5 test; 565/565 |
 | 18 | **C2 kapandı** | destroy() accessor'ı geri alıyor; +2 test; 569/569 |
+| 19 | **C5 kapandı** | 21 sabit bekleme koşul-bekleyene çevrildi; 3 tam paket 569/569 |
 
 ---
 

@@ -95,3 +95,8 @@ tüm geçmiş, ajanlar ve açık işler geri gelsin.
 **Tarih:** Oturum 3 · **Karar:** Bir motorda `Object.defineProperty` ile sarmalanan her room alanı için önceki tanım saklanır ve `destroy()` aynen geri koyar (tanım yoksa siler).
 **Gerekçe:** Sarmalayıcı kalıcı olursa `_origJoin` eski motora bağlı kalır; yeni motor kurulunca aynı olay iki kez işlenir (çift log, çift mevki uygulaması). Hata görünmez, sadece davranış bozulur.
 **Uygulama:** `createMatchEngine` → `prevJoinDescriptor`; `destroy()` → `defineProperty(prev)` / `delete`.
+
+### K20 — Testlerde sabit `sleep` yerine koşul bekleme
+**Tarih:** Oturum 3 · **Karar:** Asenkron iş bitişini bekleyen testler sabit süre yerine koşul bekler (`settle`, `waitDbRow`, `waitAnnounce`).
+**İstisna:** Test **yokluğu** doğruluyorsa (avatar çizilmemesi, istatistik yazılmaması, yanlış kolona yazılmaması) kısa sabit bekleme korunur ve gerekçesi yorumda yazılır; `waitFor` yokluğu bekleyemez, hemen döner ve test hiçbir şey ölçmez.
+**Gerekçe:** Sabit süre makine hızına bağlı; yüklü makinede yanlış kırmızı, hızlı makinede boşa geçen süre.

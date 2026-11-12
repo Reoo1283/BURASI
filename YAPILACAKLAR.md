@@ -158,6 +158,8 @@ modüller (`sqlite3`, `bcrypt`) her makinede yeniden derlenmeli, arşivlenmemeli
 
 **C2 BİTTİ (12 Kasım 2026):** `src/match/index.js` → `createMatchEngine` kapsamında `prevJoinDescriptor`; `initMatchMechanics` kurmadan önceki tanımı saklar, `destroy()` `Object.defineProperty` ile **aynen geri koyar** (tanım yoksa `delete`). Önceden accessor kalıcı kalıyor ve `_origJoin` eski motora bağlı kalıyordu → motor yeniden kurulunca aynı join **iki kez** işleniyordu.
 **Kanıt:** `tests/match.index.test.js` +2 test (30/30). Regresyon testleri eski kodla **2 kırmızı**, yeni kodla yeşil doğrulandı. Tam paket **569/569**.
+**C5 BİTTİ (12 Kasım 2026) — sabit `sleep` temizliği:** 9 test dosyasında **21 sabit bekleme** koşul-bekleyen desene çevrildi (`settle`, `waitDbRow`, `waitRow`, `waitAnnounce`, inline `while (deadline)`). Kalan 3 sabit bekleme **bilinçli** ve gerekçesi yorumda: yokluğu doğrulayan testler (own-goal avatar, ısınma istatistiği, R4 nick yazımı) — `waitFor` "olmamasını" bekleyemez, hemen döner.
+**Kanıt:** 3 tam paket tekrarı **569/569** (70–79 sn). Tekrarlarda çıkan 2 gerçek kırılganlık bulundu ve düzeltildi (own-goal `ownGoals` DB yazımı, `setPlayerHelper` `isHelper` DB yazımı).
 **Bonus:** fairplay dedup (`${dbId}|censor`, 60 sn) testler arasında sızıyordu — `commands.js` fairplay'i modül düzeyinde aldığı için DI ile izole edilemiyor. Censor testleri benzersiz `dbId` kullanıyor + davranış 2 yeni testle kilitlendi.
 
 **C1 BİTTİ (12 Kasım 2026):** `src/bans.js` → `isDeviceKey()`, `parseDeviceKey()`, `DEVICE_KEY_PREFIX`, `DEVICE_KEY_HEX_LEN`. `src/identity.js:355-375` → format varsayımı kalktı, beklenmeyen uzunluk `logInfo('identity.ban-key-unrecognized')` ile raporlanıyor (sır basılmıyor).
