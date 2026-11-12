@@ -60,10 +60,18 @@ sessizce silinir — kim kazanıyor belirsiz.
 
 ## 🟠 P2 — Doğrulama ve hijyen
 
-### [ ] 7. Testleri gerçekten çalıştır
-**Komut:** `npm ci && npm test && npm run lint && npm run typecheck`
-**Neden:** 46 testin geçtiğine dair hiç kanıt yok.
-**Çıktı:** `raporlar/test-kosumu-YYYY-AA-GG.md`
+### [x] 7. Testleri gerçekten çalıştır
+**Komut:** `node scripts/run-tests.js` · **Bitti:** 12 Kasım 2026, oturum 2
+**Sonuç:** **531 test, 531 geçti, 0 düştü**, 66 sn. `tsc --noEmit` temiz.
+**Kanıt:** `raporlar/test-kosumu-2026-11-12.md`
+**Yan bulgu:** `eslint .` 1.283 hata veriyor; 924'ü `hbx-ed-main-map_uygulama/dist/`
+build çıktısından (`eslint.config.js` ignores listesine `**/dist/**` eklenmeli).
+**Ders:** Arşivdeki `node_modules` Windows derlemesi → `invalid ELF header`; native
+modüller (`sqlite3`, `bcrypt`) her makinede yeniden derlenmeli, arşivlenmemeli.
+
+### [ ] 7b. `eslint.config.js`'e `**/dist/**` ekle
+**Neden:** 924 sahte hata gerçek 359 hatayı gizliyor.
+**Doğrulama:** `npx eslint .` → hata sayısı ~359'a düşmeli.
 
 ### [ ] 8. `src/` sürümü ile GitHub `main` arasındaki farkı çıkar
 **Neden:** Arşivdeki `src/` commit edilmemiş bir çalışma kopyası olabilir.

@@ -78,6 +78,10 @@ cd C:\dev\haxball-serverr
 npm ci
 ```
 
+> **Arşivden gelen `node_modules` kullanılmaz.** RAR içindeki `sqlite3` ve `bcrypt`
+> Windows için derlenmiş native modüller taşır; başka platformda `invalid ELF header`
+> verir ve 41 test dosyası yanlış yere düşer. `package-lock.json` + yeniden derleme yeterli.
+
 > `npm ci` kilitli sürümleri (`package-lock.json`) kurar. `npm install` değil — `ci` kullanın.
 
 ### 2.5 `.env` dosyası
@@ -99,7 +103,7 @@ panellerinden yeniden alınmalı.
 ### 2.6 Doğrulama
 
 ```powershell
-npm test          # 46 test dosyası, node --test ile
+node scripts/run-tests.js   # 47 test dosyası, 531 test, node --test ile
 npm run lint      # eslint
 npm run typecheck # tsc --noEmit
 ```

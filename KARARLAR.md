@@ -54,3 +54,16 @@ tüm geçmiş, ajanlar ve açık işler geri gelsin.
 **Yapı:** `DURUM.md` (nerede kaldık) + `YAPILACAKLAR.md` (açık işler) +
 `KARARLAR.md` (bu dosya) + `agents/` + `raporlar/` + `sohbet/` + `kurulum/`.
 **Kural:** Depoya sır, `.env`, `*.sqlite`, `*.db`, `.rar` **girmez**.
+
+### K11 — Testler gerçekten çalıştırıldı, 531/531 geçti
+**Tarih:** Oturum 2 · **Karar:** "46 test" iddiası yerine ölçülen değer yazılır: **531 test / 531 geçti / 0 düştü**.
+**Kanıt:** `raporlar/test-kosumu-2026-11-12.md` (Node v24.22.2, 66 sn).
+**Yan sonuç:** `tsc --noEmit` temiz; `eslint .` 1.283 hata (924'ü `dist/` build çıktısı).
+
+### K12 — Arşivdeki `node_modules` taşınmaz
+**Gerekçe:** RAR içindeki `sqlite3`/`bcrypt` Windows derlemesi (`invalid ELF header`), 41 test dosyası yanlış yere düştü. `node_modules/.bin` betikleri izinsiz paketlenmiş (`node-gyp-build: Permission denied`).
+**Kural:** Kaynak taşınır, bağımlılık `package-lock.json`'dan kurulur; native modüller makinede derlenir.
+
+### K13 — Kaynak artık Mediafire arşivi, GitHub `main` değil
+**Gerekçe:** Kullanıcı `haxball-serverr` ZIP indirmesinden vazgeçti; `Haxball Server.rar` (RAR5, 504 MB açılım) tam kopyayı içeriyor: `src/`, `tests/`, `scripts/`, `config/`, `discord-bot/`, `backups/`, `.git`.
+**Etki:** `src/` artık iç içe arşivde değil, doğrudan kökte. İnceleme bu kopya üzerinden yürür.
