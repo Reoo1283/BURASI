@@ -1,0 +1,76 @@
+{
+  "name": "haxball-agents",
+  "upstream": {
+    "repo": "msitarzewski/agency-agents",
+    "ref": "8ae6164602c95ca78828b148b9052460ee426885",
+    "refDate": "2026-11-09T00:27:04Z",
+    "url": "https://github.com/msitarzewski/agency-agents",
+    "license": "LICENSE (upstream ile aynı)"
+  },
+  "project": {
+    "repo": "Reoo1283/haxball-serverr",
+    "ref": "ad78869099ba8d84fe9370a13c9c2982eb620670",
+    "branch": "main"
+  },
+  "division": "haxball-agents",
+  "colorPaletteSource": "scripts/convert.sh :: resolve_opencode_color()",
+  "agents": [
+    {
+      "file": "project-management/haxball-proje-yoneticisi.md",
+      "name": "Haxball Proje Yöneticisi",
+      "role": "manager",
+      "owns": ["görev dağıtımı", "bulgu takibi", "sahibe rapor"],
+      "derivedFrom": [
+        "project-management/project-manager-senior.md",
+        "engineering/engineering-code-reviewer.md"
+      ]
+    },
+    {
+      "file": "engineering/haxball-teknik-denetci.md",
+      "name": "Haxball Teknik Denetçi",
+      "role": "review-lead",
+      "owns": ["kod incelemesi", "rapor birleştirme", "önem derecelendirme"],
+      "derivedFrom": ["engineering/engineering-code-reviewer.md"]
+    },
+    {
+      "file": "engineering/haxball-oda-cekirdek-muhendisi.md",
+      "name": "Haxball Oda Çekirdek Mühendisi",
+      "role": "core",
+      "owns": ["room lifecycle", "onPlayerJoin", "playerState", "join gate"],
+      "derivedFrom": ["engineering/engineering-backend-architect.md"]
+    },
+    {
+      "file": "security/haxball-ban-mute-kimlik-muhendisi.md",
+      "name": "Haxball Ban Mute Kimlik Mühendisi",
+      "role": "security-identity",
+      "owns": ["ban/mute anahtarları", "duplicate auth", "kimlik sızıntısı"],
+      "derivedFrom": ["engineering/engineering-identity-access-engineer.md"]
+    },
+    {
+      "file": "engineering/haxball-surec-dayanikliligi-muhendisi.md",
+      "name": "Haxball Süreç Dayanıklılığı Mühendisi",
+      "role": "sre",
+      "owns": ["boot", "crash policy", "shutdown", "yedek", "gözlemlenebilirlik"],
+      "derivedFrom": ["engineering/engineering-sre.md"]
+    },
+    {
+      "file": "security/haxball-sir-yapilandirma-muhendisi.md",
+      "name": "Haxball Sır ve Yapılandırma Mühendisi",
+      "role": "secrets",
+      "owns": [".env", "git hijyeni", "rotasyon", ".env.example sözleşmesi"],
+      "derivedFrom": ["security/security-secrets-credential-engineer.md"]
+    },
+    {
+      "file": "testing/haxball-test-kanit-muhendisi.md",
+      "name": "Haxball Test ve Kanıt Mühendisi",
+      "role": "qa",
+      "owns": ["test harness", "regresyon testleri", "kanıt"],
+      "derivedFrom": ["testing/testing-test-automation-engineer.md"]
+    }
+  ],
+  "boundaries": {
+    "githubWrites": false,
+    "codeChangesWithoutApproval": false,
+    "reportLanguage": "tr"
+  }
+}
