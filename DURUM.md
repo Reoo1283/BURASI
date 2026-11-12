@@ -30,6 +30,8 @@
 | 12 | **553 test / 553 geçti** | 68,6 sn · `tsc` temiz · `eslint` 1.283 → 28 |
 | 13 | **7 ajan `~/.claude/agents/`'a kuruldu** | format değiştirilmedi, `diff` 7/7 birebir |
 | 14 | **Madde 18 uygulandı** | açılışta sır sağlık kontrolü + `tests/secretCheck.test.js` (7 test) |
+| 15 | **Ajan ekibi raporu** | 7 ajan, 17 bulgu (C1–C17), dosya:satır + çözüm planı |
+| 16 | **560 test / 560 geçti** | 4 zamanlama-duyarlı test `waitFor` desenine çevrildi |
 
 ---
 

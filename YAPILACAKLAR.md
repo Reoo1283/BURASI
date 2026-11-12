@@ -153,6 +153,12 @@ modüller (`sqlite3`, `bcrypt`) her makinede yeniden derlenmeli, arşivlenmemeli
 **Test:** `tests/secretCheck.test.js` — 7 test, 7/7 geçti (sunucu çalıştırılmadan yalnız sır bloğu değerlendirilir).
 **Rehber:** `kurulum/SIR-ROTASYONU.md` §3 ve §8.
 
+
+### [ ] 19. Ajan raporu bulguları (C1–C17)
+**Kaynak:** `raporlar/ajan-raporu-2026-11-12.md`
+**En kritik 5:** C1 (ban anahtarı), C2 (accessor geri alma), C4 (sır rotasyonu), C7 (skor yedeği), C3 (sightings büyümesi).
+**Kural:** Her biri ayrı onay ister; C4 yalnız kullanıcı yapabilir.
+
 ---
 
 ## Bitiş kontrolü
