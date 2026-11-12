@@ -28,7 +28,7 @@ Sonra asistan sohbetine şunu yazın:
 | `YAPILACAKLAR.md` | Öncelik sıralı açık işler, her biri sahipli ve dosya:satır referanslı |
 | `KARARLAR.md` | Alınmış kararlar ve gerekçeleri — aynı tartışmayı tekrar açmamak için |
 | `agents/` | 7 kişilik ajan ekibi + `agents.json` (sınırlar) |
-| `raporlar/` | İnceleme, 1. tur özeti, düzeltme raporu, **test koşumu** |
+| `raporlar/` | İnceleme, 1. tur özeti, düzeltme raporu, test koşumu, **kod düzeltme turu (diffler)** |
 | `sohbet/` | Konuşmanın tam metin dökümü |
 | `kurulum/` | Adım adım kurulum kılavuzu |
 
@@ -38,7 +38,7 @@ Sonra asistan sohbetine şunu yazın:
 
 | Kural | Değer |
 |---|---|
-| `haxball-serverr` deposuna yazma | **Yok** — yorum, review, PR, commit hiçbiri |
+| `haxball-serverr` deposuna yazma | **Yok** — yorum, review, PR, commit hiçbiri (kod değişiklikleri yalnız `raporlar/` içinde diff olarak durur) |
 | Kod değiştirme | **Yok** — kullanıcı onayı olmadan |
 | Rapor dili | Türkçe |
 | Bulgu formatı | `dosya:satır` + önem + düzeltme |
@@ -88,5 +88,5 @@ git push
 | Dal / commit | GitHub `main` @ `ad78869` · arşiv `.git` @ `1053c7a` (163 değişiklik izlenmemiş) |
 | Dil | JavaScript (CommonJS), Node 20+ (test: v24.22.2) |
 | Ölçek | `server.js` 386 satır · `src/` 72 dosya / 16.556 satır · `tests/` 47 dosya / 9.926 satır |
-| Test durumu | **531 test / 531 geçti** — `raporlar/test-kosumu-2026-11-12.md` |
+| Test durumu | **553 test / 553 geçti** — `raporlar/test-kosumu-2026-11-12.md` + `raporlar/duzeltme-turu-2026-11-12.md` |
 | Ajan ekibi | 7 ajan, `msitarzewski/agency-agents` formatında |

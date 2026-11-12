@@ -67,3 +67,16 @@ tüm geçmiş, ajanlar ve açık işler geri gelsin.
 ### K13 — Kaynak artık Mediafire arşivi, GitHub `main` değil
 **Gerekçe:** Kullanıcı `haxball-serverr` ZIP indirmesinden vazgeçti; `Haxball Server.rar` (RAR5, 504 MB açılım) tam kopyayı içeriyor: `src/`, `tests/`, `scripts/`, `config/`, `discord-bot/`, `backups/`, `.git`.
 **Etki:** `src/` artık iç içe arşivde değil, doğrudan kökte. İnceleme bu kopya üzerinden yürür.
+
+### K14 — P1/P2/P3 maddeleri uygulandı (kullanıcı onayıyla)
+**Tarih:** Oturum 3 · **Karar:** Kullanıcı "yapmadığın neler kaldı onları tamamen yap" dedi → `codeChangesWithoutApproval: false` sınırı bu tur için onaylandı.
+**Sonuç:** 15 madde kapandı, +294/−156 satır, 16 dosya + 1 yeni test. Test 531 → **553/553**.
+**Sınır korundu:** Değişiklikler `haxball-serverr` deposuna **gönderilmedi**; yalnız `raporlar/duzeltme-turu-2026-11-12.md` içinde diff olarak duruyor.
+
+### K15 — Yetki önbelleğinde yalnız POZİTİF sonuç tutulur
+**Gerekçe:** İlk sürüm "yetki yok" sonucunu da 30 sn önbelleğe alıyordu; DB kesintisinde gerçek adminler normal oyuncu sayılacaktı. Mevcut `joinGate.test.js` bunu yakaladı.
+**Kural:** Negatif sonuç önbelleğe alınmaz; belirsizlik + önbellek yok = fail-closed (reddet).
+
+### K16 — `maxPlayers` tek kaynaktan türetilir
+**Gerekçe:** `server.js` sabit `15` ile `slotGuard.totalLimit` çelişiyordu (2 slot boşa gidiyordu).
+**Kural:** `limitsForRoom()` tek kaynak; `config/runtime.json → slots` esas alınır, `ROOM_MAX_PLAYERS` yalnız üst sınırı yükseltebilir.

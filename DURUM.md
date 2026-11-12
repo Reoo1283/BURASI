@@ -1,14 +1,14 @@
 # DURUM — Nerede kaldık
 
-**Son güncelleme:** 12 Kasım 2026, oturum 2 (yeni makine — Linux, Node v24.22.2)
-**Sıradaki adım:** `YAPILACAKLAR.md` → madde 1 (sır rotasyonu) · paralel: 21 bulgunun `src/` üzerinde teyidi
+**Son güncelleme:** 12 Kasım 2026, oturum 3 (kod düzeltme turu — Linux, Node v24.22.2)
+**Sıradaki adım:** `YAPILACAKLAR.md` → madde 1 (sır rotasyonu, yalnız kullanıcı) · sonra madde 6b, 16, 17
 
 ---
 
 ## Tek cümlelik durum
 
-İnceleme **bitti**, düzeltme raporu **onaylandı**, testler artık **gerçekten çalıştırıldı ve geçti**
-(531/531). Sırada: sır rotasyonu (yalnız kullanıcı) ve 21 bulgunun `src/` üzerinde dosya:satır teyidi.
+İnceleme **bitti**, testler **553/553 geçiyor**, P1+P2+P3 maddelerinin **tamamı uygulandı**
+(2,3,4,5,6,7b,8,9,10,11,12,13,14,15). Tek kalan iş **sır rotasyonu** — yalnız kullanıcı yapabilir.
 
 ---
 
@@ -25,17 +25,23 @@
 | 7 | Konuşma dökümü | `sohbet/sohbet-gecmisi.txt` — 3.888 satır, sırlar redakte |
 | 8 | **Testler çalıştırıldı (oturum 2)** | `raporlar/test-kosumu-2026-11-12.md` — **531/531 geçti**, 66 sn, `tsc` temiz |
 | 9 | Kaynak Mediafire arşivinden açıldı | 12.675 dosya / 504 MB; `src/` 72 dosya / 16.556 satır, `tests/` 47 dosya |
+| 10 | **Kod düzeltme turu (oturum 3)** | `raporlar/duzeltme-turu-2026-11-12.md` — 15 madde kapandı, +294/−156 satır |
+| 11 | Moderasyon katmanına 22 test | `tests/moderation.test.js` — bans/mutes/identity |
+| 12 | **553 test / 553 geçti** | 68,6 sn · `tsc` temiz · `eslint` 1.283 → 28 |
 
 ---
 
 ## Doğrulanmamış olan (dikkat)
 
-- ~~46 test çalıştırılmadı~~ → **kapandı:** 531/531 geçti (oturum 2).
+- ~~46 test çalıştırılmadı~~ → **kapandı:** 553/553 geçti (oturum 3).
+- **Sırlar hâlâ yanmış durumda:** `.env` + `README.md:2` GitHub'da commit edilmiş (1 commit). Rotasyon yapılmadı.
+- `src/` değişiklikleri **haxball-serverr deposuna gönderilmedi** — yalnız bu raporda diff olarak duruyor.
 - `Haxball Server.rar` içindeki `src/` sürümü ile GitHub `main` arasındaki fark
   hâlâ bilinmiyor — arşivdeki `.git` commit `1053c7a`, çalışma ağacında **163 değişiklik** var.
 - `identity.js` (58 KB, en büyük modül) yalnızca 3 fonksiyonundan okundu.
 - Git geçmişi taranmadı; sırların kaç commit geriye gittiği bilinmiyor.
-- `eslint .` 1.283 hata veriyor (924'ü `dist/` build çıktısı). `tsc --noEmit` temiz.
+- `eslint .` 28 hata veriyor (hepsi kozmetik). `tsc --noEmit` temiz.
+- `identity.js` bulgusu I7 açık: ban eşleştirmesi `dev:` + 68 karakter varsayımına bağlı (madde 16).
 
 ---
 
