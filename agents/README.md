@@ -45,6 +45,23 @@ Upstream `scripts/install.sh` yalnızca kendi `AGENT_DIRS` listesindeki bölüml
 
 Bu adımlar uygulanmadan da dosyalar doğrudan `~/.claude/agents/` (veya ilgili araç dizinine) elle kopyalanabilir — frontmatter her iki biçimle uyumlu.
 
+### Kurulum durumu — 12 Kasım 2026
+
+**Kuruldu.** 7 ajan `~/.claude/agents/` dizinine kopyalandı, format değiştirilmedi:
+
+```bash
+mkdir -p ~/.claude/agents
+cp agents/{project-management,engineering,security,testing}/haxball-*.md ~/.claude/agents/
+```
+
+| Doğrulama | Sonuç |
+|---|---|
+| Kopyalanan dosya | 7/7 |
+| Kaynak ile birebir aynı (`diff`) | 7/7 |
+| Frontmatter geçerli (`---` … `---`, `name` dolu) | 7/7 |
+
+> **Not:** `~/.claude/agents/` Claude Code'un ajan dizinidir. Bu dosyalar orada **Claude Code** tarafından çağrılabilir hale gelir. AbacusAI Bot'ta ayrı ajan süreci mekanizması yoktur; orada bu ekip yol haritası/şablon olarak durur ve işi tek oturum yürütür.
+
 ## İş bölümü kuralı
 
 Tek görev, tek sahip. Çakışma müdürün hatasıdır:
