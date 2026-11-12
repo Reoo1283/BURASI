@@ -80,3 +80,8 @@ tüm geçmiş, ajanlar ve açık işler geri gelsin.
 ### K16 — `maxPlayers` tek kaynaktan türetilir
 **Gerekçe:** `server.js` sabit `15` ile `slotGuard.totalLimit` çelişiyordu (2 slot boşa gidiyordu).
 **Kural:** `limitsForRoom()` tek kaynak; `config/runtime.json → slots` esas alınır, `ROOM_MAX_PLAYERS` yalnız üst sınırı yükseltebilir.
+
+### K17 — Ajanlar `~/.claude/agents/`'a kopyalanır, format değiştirilmez
+**Tarih:** Oturum 3 · **Karar:** Kullanıcı "format aynı kalıyor değiştirmeye gerek kalmıyor" dedi.
+**Uygulama:** 7 dosya düz `cp` ile kopyalandı; `diff` 7/7 birebir, frontmatter 7/7 geçerli.
+**Sınır:** Bu dizin Claude Code'un; AbacusAI Bot'ta ayrı ajan süreci yoktur.

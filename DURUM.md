@@ -28,6 +28,8 @@
 | 10 | **Kod düzeltme turu (oturum 3)** | `raporlar/duzeltme-turu-2026-11-12.md` — 15 madde kapandı, +294/−156 satır |
 | 11 | Moderasyon katmanına 22 test | `tests/moderation.test.js` — bans/mutes/identity |
 | 12 | **553 test / 553 geçti** | 68,6 sn · `tsc` temiz · `eslint` 1.283 → 28 |
+| 13 | **7 ajan `~/.claude/agents/`'a kuruldu** | format değiştirilmedi, `diff` 7/7 birebir |
+| 14 | **Madde 18 uygulandı** | açılışta sır sağlık kontrolü + `tests/secretCheck.test.js` (7 test) |
 
 ---
 
